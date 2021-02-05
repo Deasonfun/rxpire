@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script language="javascript" type="text/javascript" src="script.js" defer></script>
+    </head>
+    <body>
+        <h4 id="inputText">
+            Name: <br /><input id="name">
+            <br />
+            NDC: <br /><input id="ndc">
+            <br />
+            LOT: <br /><input id="lot">
+            <br />
+            Day: <br /><input id="exDay">
+            <br />
+            Month: <br /><input id="exMonth">
+            <br />
+            Year: <br /><input id="exYear">
+            <br />
+            <button id="submit">Submit</button>
+            <br />
+            <input type="text" id="search" onkeyup="search()" placeholder="Search">
+        </h4>
+        <table id="mainTable">
+            <tr>
+                <th>Name</th>
+                <th>NDC</th>
+                <th>LOT</th>
+                <th>Day</th>
+                <th>Month</th>
+                <th>Year</th>
+            </tr>
+        </table>
+    </body>
+</html>
