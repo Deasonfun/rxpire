@@ -11,7 +11,7 @@ function listening() {
 
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost/admin', function (err) {
+mongoose.connect('mongodb://localhost/rxpire', function (err) {
     if (err) throw err;
     console.log('Database connected...');
 
