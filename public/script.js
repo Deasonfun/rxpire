@@ -34,7 +34,7 @@ function appendData(data) {
   	for (var i = 0; i <= Object.keys(data).length - 1; i++) {
 		var postID = Object.values(data)[i]._id;
 		var scriptTableRow = document.createElement("tr");
-		scriptTableRow.id = 'row-' + postID;
+		scriptTableRow.id = postID;
     	var name = document.createElement("td");
     	var ndc = document.createElement("td");
     	var lot = document.createElement("td");
@@ -61,8 +61,8 @@ function appendData(data) {
 		scriptTableRow.appendChild(removeButton);
 
 		removeButton.onclick = function() {
-			console.log(this.parentElement);
-			loadJSON('remove/' + postID);
+			console.log(this.parentElement.id);
+			loadJSON('remove/' + this.parentElement.id);
 			location.reload();
 		}
   	}
