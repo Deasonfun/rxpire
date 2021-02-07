@@ -38,17 +38,13 @@ function appendData(data) {
     	var name = document.createElement("td");
     	var ndc = document.createElement("td");
     	var lot = document.createElement("td");
-		var day = document.createElement("td");
-		var month = document.createElement("td");
-		var year = document.createElement("td");
+		var ex = document.createElement("td");
 		var removeButton = document.createElement("td");
 
     	name.innerHTML = Object.values(data)[i].name;
     	ndc.innerHTML = Object.values(data)[i].ndc;
     	lot.innerHTML = Object.values(data)[i].lot;
-		day.innerHTML = Object.values(data)[i].day;
-		month.innerHTML = Object.values(data)[i].month;
-		year.innerHTML = Object.values(data)[i].year;
+		ex.innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year;
 		removeButton.innerHTML = "remove";
 		removeButton.id = 'removeButton';
 
@@ -56,9 +52,7 @@ function appendData(data) {
     	scriptTableRow.appendChild(name);
     	scriptTableRow.appendChild(ndc);
     	scriptTableRow.appendChild(lot);
-		scriptTableRow.appendChild(day);
-		scriptTableRow.appendChild(month);
-		scriptTableRow.appendChild(year);
+		scriptTableRow.appendChild(ex);
 		scriptTableRow.appendChild(removeButton);
 
 		removeButton.onclick = function() {
