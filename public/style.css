@@ -1,5 +1,13 @@
 html {
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    background-color: #424242;
+}
+
+#inputText {
+    color: white;
 }
 
 table, td, th, tr {
@@ -7,15 +15,17 @@ table, td, th, tr {
 }
 
 table {
+    color: white;
     border-collapse: collapse;
     width: 80%;
     margin-right: auto;
     margin-left: auto;
-    box-shadow: 5px 5px 8px #888888;
+    font-size: 1.5em;
 }
 
 th {
-    background-color: #d4d4d4;
+    color: black;
+    background-color: #666666;
 }
   
 td, th {
@@ -24,7 +34,21 @@ td, th {
 }
   
 tr:nth-child(even) {
-    background-color: #aed5fa;
+    background-color: #63b3fd;
+}
+
+tr:nth-child(odd) {
+    background-color: grey;
+}
+
+#removeButton {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+#removeButton:hover {
+    color: red;
 }
 
 input {
@@ -39,19 +63,7 @@ input {
 }
 
 input:focus {
-    border: 2px solid #aed5fa;
-}
-
-#exMonth {
-    padding: 8px 8px;
-    margin: 8px 0;
-    width: 50%;
-    border-radius: 6px;
-    border: 2px solid black;
-}
-
-#exMonth:focus {
-    border: 2px solid #aed5fa;
+    border: 3px solid #63b3fd;
 }
 
 #submit {
