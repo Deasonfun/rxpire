@@ -65,4 +65,10 @@ mongoose.connect('mongodb://localhost/rxpire', function (err) {
             res.send(data);
         });
     });
+
+    app.get('/remove/:postID?', removePost);
+
+    function removePost(request, response) {
+        console.log(request.params);
+    }
 });

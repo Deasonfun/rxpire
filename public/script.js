@@ -32,19 +32,25 @@ var tableContainer = document.getElementById("mainTable");
 function appendData(data) {
 	console.log(data);
   	for (var i = 0; i <= Object.keys(data).length - 1; i++) {
+		var postID = Object.values(data)[i]._id;
 		var scriptTableRow = document.createElement("tr");
+		scriptTableRow.id = 'row-' + postID;
     	var name = document.createElement("td");
     	var ndc = document.createElement("td");
     	var lot = document.createElement("td");
 		var day = document.createElement("td");
 		var month = document.createElement("td");
 		var year = document.createElement("td");
+		var removeButton = document.createElement("td");
     	name.innerHTML = Object.values(data)[i].name;
     	ndc.innerHTML = Object.values(data)[i].ndc;
     	lot.innerHTML = Object.values(data)[i].lot;
 		day.innerHTML = Object.values(data)[i].day;
 		month.innerHTML = Object.values(data)[i].month;
 		year.innerHTML = Object.values(data)[i].year;
+		removeButton.innerHTML = "remove";
+		//removeButton.href = '#';
+		removeButton.id = 'removeButton';
     	tableContainer.appendChild(scriptTableRow);
     	scriptTableRow.appendChild(name);
     	scriptTableRow.appendChild(ndc);
@@ -52,6 +58,12 @@ function appendData(data) {
 		scriptTableRow.appendChild(day);
 		scriptTableRow.appendChild(month);
 		scriptTableRow.appendChild(year);
+		scriptTableRow.appendChild(removeButton);
+
+		removeButton.onclick = function() {
+			console.log(this.parentElement);
+			loadJSON('remove/' + postID);
+		}
   	}
 }
 
