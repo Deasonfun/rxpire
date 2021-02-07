@@ -69,6 +69,10 @@ mongoose.connect('mongodb://localhost/rxpire', function (err) {
     app.get('/remove/:postID?', removePost);
 
     function removePost(request, response) {
-        console.log(request.params);
+        removedID = request.params.postID;
+        console.log('Removing: ' + removedID);
+        post.findByIdAndRemove(removedID, function(err) {
+            if (err) throw err;
+        });
     }
 });

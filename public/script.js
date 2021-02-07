@@ -41,7 +41,7 @@ function appendData(data) {
 		var day = document.createElement("td");
 		var month = document.createElement("td");
 		var year = document.createElement("td");
-		var removeButton = document.createElement("td");
+		var removeButton = document.createElement("a");
     	name.innerHTML = Object.values(data)[i].name;
     	ndc.innerHTML = Object.values(data)[i].ndc;
     	lot.innerHTML = Object.values(data)[i].lot;
@@ -49,7 +49,7 @@ function appendData(data) {
 		month.innerHTML = Object.values(data)[i].month;
 		year.innerHTML = Object.values(data)[i].year;
 		removeButton.innerHTML = "remove";
-		//removeButton.href = '#';
+		removeButton.href = '#';
 		removeButton.id = 'removeButton';
     	tableContainer.appendChild(scriptTableRow);
     	scriptTableRow.appendChild(name);
@@ -63,6 +63,7 @@ function appendData(data) {
 		removeButton.onclick = function() {
 			console.log(this.parentElement);
 			loadJSON('remove/' + postID);
+			location.reload();
 		}
   	}
 }
