@@ -59,6 +59,17 @@ function appendData(data) {
 			loadJSON('remove/' + this.parentElement.id);
 			location.reload();
 		}
+
+		var date = new Date();
+		//Month function starts at 0, so I add one to it just to make it easier to read
+		var month = date.getMonth() + 1;
+		if (data[i].year <= date.getFullYear()) {
+			if (data[i].month <= month + 2) {
+				if (data[i].day <= date.getDate()) {
+					scriptTableRow.style.color = 'red';
+				}
+			}
+		}
   	}
 }
 
