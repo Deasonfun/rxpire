@@ -39,36 +39,46 @@ function appendData(data) {
 		//Set the post ID as the object ID in the mongo database
 		var postID = Object.values(data)[i]._id;
 		//Create a row for each object
-		var scriptTableRow = document.createElement("tr");
+		var scriptTableRow = $('<tr></tr>', {
+			'id' : postID
+		}).appendTo(tableContainer);
 		//Set the row ID the same as the post ID
-		scriptTableRow.id = postID;
-    	var name = document.createElement("td");
-    	var ndc = document.createElement("td");
-    	var lot = document.createElement("td");
-		var ex = document.createElement("td");
-		var removeButton = document.createElement("td");
-
+		//scriptTableRow.id = postID;
+  
+		var name = $('<td></td>').append(innerHTML = Object.values(data)[i].name).appendTo(scriptTableRow);
+    	var ndc = $('<td></td>').append(innerHTML = Object.values(data)[i].ndc).appendTo(scriptTableRow);
+    	var lot = $('<td></td>').append(innerHTML = Object.values(data)[i].lot).appendTo(scriptTableRow); 
+		var ex = $('<td></td>').append(innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year).appendTo(scriptTableRow);
+		
+		var removeButton = $('<td></td>', {
+			'id' : 'removeButton',
+			'click' : function() {
+				loadJSON('remove/' + this.parentElement.id);
+				location.reload();	
+			}
+		}).append(innerHTML = 'remove').appendTo(scriptTableRow);
+		
 		//Set element values
-    	name.innerHTML = Object.values(data)[i].name;
-    	ndc.innerHTML = Object.values(data)[i].ndc;
-    	lot.innerHTML = Object.values(data)[i].lot;
-		ex.innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year;
-		removeButton.innerHTML = "remove";
-		removeButton.id = 'removeButton';
+    	//name.innerHTML = Object.values(data)[i].name;
+    	//ndc.innerHTML = Object.values(data)[i].ndc;
+    	//lot.innerHTML = Object.values(data)[i].lot;
+		//ex.innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year;
+		//removeButton.innerHTML = "remove";
+		//removeButton.id = 'removeButton';
 
 		//Putting everything together
-    	tableContainer.appendChild(scriptTableRow);
-    	scriptTableRow.appendChild(name);
-    	scriptTableRow.appendChild(ndc);
-    	scriptTableRow.appendChild(lot);
-		scriptTableRow.appendChild(ex);
-		scriptTableRow.appendChild(removeButton);
+    	//tableContainer.appendChild(scriptTableRow);
+    	//scriptTableRow.appendChild(name);
+    	//scriptTableRow.appendChild(ndc);
+    	//scriptTableRow.appendChild(lot);
+		//scriptTableRow.appendChild(ex);
+		//scriptTableRow.appendChild(removeButton);
 
 		//Send post ID to server so it can remove it from database
-		removeButton.onclick = function() {
-			loadJSON('remove/' + this.parentElement.id);
-			location.reload();
-		}
+		//removeButton.onclick = function() {
+		//	loadJSON('remove/' + this.parentElement.id);
+		//	location.reload();
+		//}
 
 		//If expiration date is less than 3 months away, hightlight it red
 		var date = new Date();
@@ -77,7 +87,7 @@ function appendData(data) {
 		if (data[i].year <= date.getFullYear()) {
 			if (data[i].month <= month + 2) {
 				if (data[i].day <= date.getDate()) {
-					scriptTableRow.style.color = '#cc3333';
+					scriptTableRow[0].style.color = '#cc3333';
 				}
 			}
 		}
