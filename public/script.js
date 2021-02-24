@@ -59,7 +59,8 @@ function appendData(data) {
 		.append(innerHTML = Object.values(data)[i].lot)
 		.appendTo(scriptTableRow);
 
-		var ex = $('<td></td>').append(innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year)
+		var ex = $('<td></td>')
+		.append(innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year)
 		.appendTo(scriptTableRow);
 		
 		var removeButton = $('<td></td>', {
@@ -70,18 +71,6 @@ function appendData(data) {
 			}
 		}).append(innerHTML = 'remove').appendTo(scriptTableRow);
 		
-		//If expiration date is less than 3 months away, hightlight it red
-		var date = new Date();
-		//date.getMonth function starts at 0, so I add one to it just to make it easier to read
-		var month = date.getMonth() + 1;
-		if (data[i].year <= date.getFullYear()) {
-			if (data[i].month <= month + 2) {
-				if (data[i].day <= date.getDate()) {
-					scriptTableRow[0].style.color = '#cc3333';
-				}
-			}
-		}
-
 		var date = new Date();
 		var expired = false;
 		
@@ -92,7 +81,8 @@ function appendData(data) {
 		}
 		
 		if (expired == true) {
-			scriptTableRow.style.color = '#cc3333';
+			console.log('hey')
+			scriptTableRow[0].style.color = '#cc3333';
 		}
   	}
 }
