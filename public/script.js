@@ -35,20 +35,32 @@ var tableContainer = document.getElementById("mainTable");
 function appendData(data) {
 	console.log(data);
 	//For each object in the database, get the value and set it to an element in the table
-  	for (var i = 0; i <= Object.keys(data).length - 1; i++) {
+  	for (const i of Object.keys(data)) {
 		//Set the post ID as the object ID in the mongo database
 		var postID = Object.values(data)[i]._id;
 		//Create a row for each object
 		var scriptTableRow = $('<tr></tr>', {
+			//Set the rows ID as the postID
 			'id' : postID
 		}).appendTo(tableContainer);
-		//Set the row ID the same as the post ID
-		//scriptTableRow.id = postID;
-  
-		var name = $('<td></td>').append(innerHTML = Object.values(data)[i].name).appendTo(scriptTableRow);
-    	var ndc = $('<td></td>').append(innerHTML = Object.values(data)[i].ndc).appendTo(scriptTableRow);
-    	var lot = $('<td></td>').append(innerHTML = Object.values(data)[i].lot).appendTo(scriptTableRow); 
-		var ex = $('<td></td>').append(innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year).appendTo(scriptTableRow);
+
+		//Create a cell in the table for the name, NDC, LOT, ex date and remove button
+		//Set the data from the object value
+		//Append it to the row created
+		var name = $('<td></td>')
+		.append(innerHTML = Object.values(data)[i].name)
+		.appendTo(scriptTableRow);
+
+    	var ndc = $('<td></td>')
+		.append(innerHTML = Object.values(data)[i].ndc)
+		.appendTo(scriptTableRow);
+
+    	var lot = $('<td></td>')
+		.append(innerHTML = Object.values(data)[i].lot)
+		.appendTo(scriptTableRow);
+
+		var ex = $('<td></td>').append(innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year)
+		.appendTo(scriptTableRow);
 		
 		var removeButton = $('<td></td>', {
 			'id' : 'removeButton',
