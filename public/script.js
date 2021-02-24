@@ -70,28 +70,6 @@ function appendData(data) {
 			}
 		}).append(innerHTML = 'remove').appendTo(scriptTableRow);
 		
-		//Set element values
-    	//name.innerHTML = Object.values(data)[i].name;
-    	//ndc.innerHTML = Object.values(data)[i].ndc;
-    	//lot.innerHTML = Object.values(data)[i].lot;
-		//ex.innerHTML = Object.values(data)[i].day + ' - ' + Object.values(data)[i].month + ' - ' + Object.values(data)[i].year;
-		//removeButton.innerHTML = "remove";
-		//removeButton.id = 'removeButton';
-
-		//Putting everything together
-    	//tableContainer.appendChild(scriptTableRow);
-    	//scriptTableRow.appendChild(name);
-    	//scriptTableRow.appendChild(ndc);
-    	//scriptTableRow.appendChild(lot);
-		//scriptTableRow.appendChild(ex);
-		//scriptTableRow.appendChild(removeButton);
-
-		//Send post ID to server so it can remove it from database
-		//removeButton.onclick = function() {
-		//	loadJSON('remove/' + this.parentElement.id);
-		//	location.reload();
-		//}
-
 		//If expiration date is less than 3 months away, hightlight it red
 		var date = new Date();
 		//date.getMonth function starts at 0, so I add one to it just to make it easier to read
