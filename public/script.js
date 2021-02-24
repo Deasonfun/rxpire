@@ -59,6 +59,19 @@ function appendData(data) {
 			loadJSON('remove/' + this.parentElement.id);
 			location.reload();
 		}
+
+		var date = new Date();
+		var expired = false;
+		
+		if (data[i].year < date.getFullYear()) {
+			expired = true;
+		} else if (data[i].month <= date.getMonth() + 4) {
+			expired = true;
+		}
+		
+		if (expired == true) {
+			scriptTableRow.style.color = '#cc3333';
+		}
   	}
 }
 
