@@ -3,14 +3,11 @@ import axios from 'axios';
 import Row from './Row';
 import TableHead from './TableHead';
 import Input from './InputModal';
-import Filter from './FilterModal';
 import './App.css'
 
 function App() {
   const [drugs, setDrugs] = useState([]);
   const [inputModalOpen, setInputModalOpen] = useState(false);
-  const [filterModalOpen, setFilterModalOpen] = useState(false);
-  const [dateFilter, setDateFilter] = useState('2021-06-04');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -31,10 +28,8 @@ function App() {
     <div className="App">
       
       {inputModalOpen && <Input setInputModalOpen={setInputModalOpen}/>}
-      {filterModalOpen && <Filter setDrugs={setDrugs} setFilterModalOpen={setFilterModalOpen}/>}
       <div className='add-button-container'>
         <button id='add-button' onClick={() => {setInputModalOpen(true)}}>Add</button>
-        <button id='filter-button' onClick={() => {setFilterModalOpen(true)}}>Filter</button>
       </div>
       <div className='table-container'>
         <div className='header-container'>
